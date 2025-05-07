@@ -18,7 +18,7 @@ const axios = require("axios");
 
 let lastOnline = null;
 
-async function sedwebhook(message) {
+async function sendwebhook(message) {
   const webhookURL = process.env.WEBHOOK_URL;
   if (!webhookURL) return;
 
@@ -60,7 +60,7 @@ async function updateActivity() {
     });
 
     if (lastOnline === false || lastOnline === null) {
-      await sendWebhook(
+      await sendwebhook(
         `✅ **Server online!** ${playerCount}/${maxPlayers} pemain aktif.\n👥 Pemain: ${playerNames}`
       );
     }
@@ -80,7 +80,7 @@ async function updateActivity() {
     });
 
     if (lastOnline === true || lastOnline === null) {
-      await sendWebhook("⚠️ **Server offline** atau tidak dapat dijangkau.");
+      await sendwebhook("⚠️ **Server offline** atau tidak dapat dijangkau.");
     }
 
     lastOnline = false;
